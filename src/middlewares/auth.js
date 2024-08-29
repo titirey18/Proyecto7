@@ -26,6 +26,7 @@ const Administrador = async (req, res, next) => {
     const { id } = verifyJWT(replacetoken)
 
     const user = await User.findById(id)
+
     if (user.rol === 'admin') {
       user.password = null
       req.user = user
